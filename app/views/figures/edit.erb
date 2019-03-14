@@ -1,0 +1,19 @@
+<h2>Edit Figure</h2>
+
+<!-- add content here -->
+
+<form action="/figures/<%= @figure.id %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" id="figure[title_ids]" >
+  <label>Name</label>
+  <input type="text" name="figure[name]" id="figure_name" value="<%= @figure.name %>"><br>
+  <label>New Landmark</label>
+  <input type="text" name="figure[landmark]" id="new_landmark" value=""><br>
+
+  <input type="submit" value="Edit Figure" />
+
+</form>
+
+
+
+<a class="button" href="/">Home</a>
