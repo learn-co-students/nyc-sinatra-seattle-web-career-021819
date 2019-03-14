@@ -2,13 +2,18 @@
 
 <form action="/landmarks/:id" method="post">
   <label for="">
-    Landmark name: <input type="text" name="name" value="">
+    Landmark name: <input type="text" name="landmark[name]" value="">
   </label>
   <br><br>
   <label for="">
-    Year completed: <input type="text" name="year_completed" value="">
+    Year completed: <input type="text" name="landmark[year_completed]" value="">
   </label>
   <br><br>
+  <%@figures.each do |figure|%>
+  <input type="checkbox" name="landmark[figure_id]" id="<%=figure.id%>" value="<%=figure.id%>">
+  <%=figure.name %>
+  </input>
+  <%end%>
   <input type="submit" name="" value="Submit">
 </form>
 

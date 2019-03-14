@@ -6,13 +6,13 @@ class LandmarksController < ApplicationController
   end
 
   get '/landmarks/new' do
-
+    @figures = Figure.all
     erb :"/landmarks/new"
   end
 
   post "/landmarks/:id" do
-    landmark = Landmark.create(params)
-    redirect "/landmarks/#{landmark.id}"
+    @landmark = Landmark.create(params[:landmark])
+    redirect "/landmarks/#{@landmark.id}"
   end
 
   get "/landmarks/:id" do
