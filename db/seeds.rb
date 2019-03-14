@@ -1,3 +1,8 @@
+Landmark.delete_all
+Figure.delete_all
+Title.delete_all
+FigureTitle.delete_all
+
 landmarks_list = {
     "Madison Square Guarden" => {
       :year_completed => 1901
@@ -44,7 +49,7 @@ figure_list = {
     },
     "Ada Lovelace" => {
     },
-    "Linus Torvalds" => { 
+    "Linus Torvalds" => {
     }
   }
 
