@@ -1,34 +1,29 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h2>Create New Figure</h2>
-    <form action="/figures/:id" method="post">
-      <label for="">
-        Figure name: <input type="text" id="figure_name"name="figure[name]" value="">
-      </label>
-      <br><br>
-
-      <label>Choose an existing Landmark</label>
-      <input type="text" id="new_landmark" name="landmark[name]">
-      <%@landmarks.each do |landmark| %>
-      <input type="checkbox" name="figure[landmark_ids][]" id="<%=landmark.id%>"value="<%=landmark.id%>">
-      <%=landmark.name%></input>
-      <% end %>
-      <br>
-      <label>Choose an existing Title</label>
-      <input type="text" id="new_title" name="title[name]">
-      <%@titles.each do |title| %>
-      <input type="checkbox" name="figure[title_ids][]" id="<%=title.id%>"value="<%=title.id%>">
-      <%=title.name%></input>
-      <% end %>
-      <br>
-      <input id="submit_id" type="submit" name="" value="Submit">
-    </form>
-    <a class="button" href="/landmarks">Landmarks</a>
-    <a class="button" href="/">Home</a>
-  </body>
-</html>
+<form action="/figures" method="POST">
+  <label>Figure Name</label>
+  <input type="text" id="figure_name" name="figure[name]">
+  <br></br>
+  <label><h4>Choose Titles</h4></label>
+  <%@titles.each do |title| %>
+  <label><%=title.name%></label>
+  <input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]" value="<%=title.id%>"><br>
+  <% end %>
+  <br>
+<label><h4>Create New Title:</h4></label>
+  <input type="text" id="new_title” name=“title[name]">
+  <br>
+  <label><h4>Choose Existing Landmarks</h4></label>
+  <%@landmarks.each do |landmark| %>
+  <label><%=landmark.name%></label>
+  <input type="checkbox" id="landmark_<%=landmark.id%>" name="figure[landmark_ids][]" value="<%=landmark.id%>"><br>
+ <% end %>
+ <br>
+  <label>Create New Landmark</label>
+  <label>Name:</label>
+  <input type="text" id="new_landmark" name="landmark[name]">
+  <label>Year Completed:</label>
+  <input type="text"  name="landmark[year_completed]">
+  <br>
+  <input type="submit" value="Create New Figure"">
+  <a class="button" href="/landmarks">Landmarks</a>
+  <a class="button" href="/">Home</a>
+</form>
